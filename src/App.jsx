@@ -4,10 +4,28 @@ import { Container,Row, Col } from 'react-bootstrap';
 import Main from './Components/Main';
 import List from './Components/List';
 import ListItem from './Components/ListItem';
+import { useEffect } from 'react';
+import Youtube from './axios/Youtube';
 
 
 
 const App=()=>{
+
+
+  useEffect(()=>{
+async function getData(){
+const response= await youtube.get("search",{
+  params:{
+    part:"snippet",
+    maxResults:5,
+    MediaKeyMessageEvent
+
+
+  }
+})
+}
+getData()
+  },[])
   return <>
   <Container>
   <Search/>
@@ -16,7 +34,7 @@ const App=()=>{
       <Main/>
     </Col>
     <Col sm={4}>
-    <ListItem/>
+      <ListItem/>   
     </Col>
 
   </Row>
